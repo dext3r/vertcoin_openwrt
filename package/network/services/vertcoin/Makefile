@@ -26,7 +26,7 @@ ifeq ($(CONFIG_VERTCOIN),y)
 endif
 
 PKG_RELEASE:=1
-PKG_INSTALL:=1
+PKG_INSTALL:=0
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.bz2
 ifeq ($(CONFIG_VERTCOIN),y)
@@ -49,6 +49,7 @@ define Package/$(PKG_NAME)
 	DEPENDS := +libcurl +libpthread +jansson +libncurses
 	DEPENDS += +boost-chrono +boost-filesystem +boost-program_options +boost-thread +boost-test
 	DEPENDS += +libopenssl +libssp +libstdcpp
+	DEPENDS += +libatomic +libevent2 +libevent2-pthreads
 endef
 
 define Package/$(PKG_NAME)/description
@@ -84,8 +85,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind  	$(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli   $(1)/usr/bin
 
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind /home/dext0rb/fakemnt
-
+# TODO : Install to alternative location
 # TODO : Fancy service stuff
 # TODO : Configuration defaults
 # TODO : Make copy of existing block DB
