@@ -18,20 +18,17 @@
 
 include $(TOPDIR)/rules.mk
 
+
+
 PKG_NAME:=vertcoin
-
-ifeq ($(CONFIG_VERTCOIN),y)
-	PKG_VERSION:= 0.13.0
-	PKG_REV:=1a4381eb29157c05b938a2db6d8e31cb56819ea4
-endif
-
+PKG_VERSION:= 0.13.0
+PKG_REV:=1a4381eb29157c05b938a2db6d8e31cb56819ea4
 PKG_RELEASE:=1
+
 PKG_INSTALL:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.bz2
-ifeq ($(CONFIG_VERTCOIN),y)
-	PKG_SOURCE_URL:=https://github.com/vertcoin-project/vertcoin-core.git
-endif
+PKG_SOURCE_URL:=https://github.com/vertcoin-project/vertcoin-core.git
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
