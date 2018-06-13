@@ -15,25 +15,18 @@
 #
 # This is free and unencumbered software released into the public domain.
 # For details see the UNLICENSE file at the root of the source tree.
-
 include $(TOPDIR)/rules.mk
-
-
 
 PKG_NAME:=vertcoin
 PKG_VERSION:= 0.13.0
 PKG_REV:=1a4381eb29157c05b938a2db6d8e31cb56819ea4
 PKG_RELEASE:=1
-
 PKG_INSTALL:=1
-
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-$(PKG_REV).tar.bz2
 PKG_SOURCE_URL:=https://github.com/vertcoin-project/vertcoin-core.git
-
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_VERSION:=$(PKG_REV)
-
 PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
