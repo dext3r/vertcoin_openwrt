@@ -1,0 +1,3 @@
+config VERTCOIN
+	bool "Enable Vertcoin"
+	default y 
