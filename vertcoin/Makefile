@@ -77,6 +77,12 @@ ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
 		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-tx	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 	endif
 
+	ifeq ($(VERTCOIN_COPY_BLOCK_DB),y)
+		ifneq ($(VERTCOIN_COPY_BLOCK_DB_DIR), '')
+			#copy db from location to the alternate dir
+			rsync --info=progress2 ~/fakemnt/test.txt ~/test.txt
+		endif
+	endif
 else
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/etc/init.d
