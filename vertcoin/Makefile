@@ -68,16 +68,21 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
+
+ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
+
+	ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
+		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+	endif
+
+else
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_DIR) $(1)/etc/config
 
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind  	$(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli   $(1)/usr/bin
-
-
-ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 endif
 # TODO : Install to alternative location
 # TODO : Fancy service stuff
