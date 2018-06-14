@@ -75,6 +75,10 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind  	$(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli   $(1)/usr/bin
 
+
+ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+endif
 # TODO : Install to alternative location
 # TODO : Fancy service stuff
 # TODO : Configuration defaults

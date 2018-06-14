@@ -2,5 +2,10 @@ config VERTCOIN
 	bool "Enable Vertcoin"
 	default y 
 
+config VERTCOIN_ALT_INSTALL
+	bool "Install in alternate location"
+	default n
+
 config VERTCOIN_ALT_INSTALL_DIR
-	string "Alternate install location"
+	depends VERTCOIN_ALT_INSTALL	
+	string "Install location"
