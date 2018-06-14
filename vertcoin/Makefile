@@ -74,6 +74,7 @@ ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
 	ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
 		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+		$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-tx	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 	endif
 
 else
@@ -81,8 +82,9 @@ else
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_DIR) $(1)/etc/config
 
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind  	$(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli   $(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli	$(1)/usr/bin
+	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-tx	$(1)/usr/bin
 endif
 # TODO : Install to alternative location
 # TODO : Fancy service stuff
