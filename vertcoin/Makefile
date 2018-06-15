@@ -79,7 +79,6 @@ endif
 
 ifeq ($(CONFIG_VERTCOIN_COPY_BLOCK_DB),y)
 ifneq ($(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR), '')
-	#copy db from location to the alternate dir
 	rsync -r --info=progress2 $(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR)/blocks $(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 	rsync -r --info=progress2 $(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR)/chainstate	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 endif
@@ -95,7 +94,7 @@ else
 endif
 # TODO : Fancy service stuff
 # TODO : Configuration defaults
-
+# TODO : Wallet, ZeroMQ, etc menu options
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))

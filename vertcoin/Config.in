@@ -2,6 +2,17 @@ config VERTCOIN
 	bool "Enable Vertcoin"
 	default y 
 
+config VERTCOIN_ENABLE_WALLET
+	bool "Enable wallet"
+	default n
+
+config VERTCOIN_ENABLE_ZMQ
+	bool "Enable ZMQ messaging"
+	default N
+
+config VERTCOIN_ENABLE_UPNP
+	bool "Enable UPnP support"
+
 config VERTCOIN_ALT_INSTALL
 	bool "Install in alternate location"
 	default n
