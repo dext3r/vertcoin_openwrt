@@ -80,7 +80,8 @@ endif
 ifeq ($(CONFIG_VERTCOIN_COPY_BLOCK_DB),y)
 ifneq ($(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR), '')
 	#copy db from location to the alternate dir
-	rsync -r --info=progress2 $(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR) $(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+	rsync -r --info=progress2 $(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR)/blocks $(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
+	rsync -r --info=progress2 $(CONFIG_VERTCOIN_COPY_BLOCK_DB_DIR)/chainstate	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 endif
 endif
 else
@@ -92,10 +93,8 @@ else
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli	$(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-tx	$(1)/usr/bin
 endif
-# TODO : Install to alternative location
 # TODO : Fancy service stuff
 # TODO : Configuration defaults
-# TODO : Make copy of existing block DB
 
 endef
 
