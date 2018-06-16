@@ -8,10 +8,11 @@ config VERTCOIN_ENABLE_WALLET
 
 config VERTCOIN_ENABLE_ZMQ
 	bool "Enable ZMQ messaging"
-	default N
+	default n
 
 config VERTCOIN_ENABLE_UPNP
 	bool "Enable UPnP support"
+	default n
 
 config VERTCOIN_ALT_INSTALL
 	bool "Install in alternate location"
@@ -29,3 +30,9 @@ config VERTCOIN_COPY_BLOCK_DB
 config VERTCOIN_COPY_BLOCK_DB_DIR
 	depends VERTCOIN_COPY_BLOCK_DB
 	string "Database location"
+
+config VERTCOIN_PROVISION_USB_STICK
+	bool "Provision USB stick"
+	default n
+
+
