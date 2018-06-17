@@ -31,8 +31,5 @@ config VERTCOIN_COPY_BLOCK_DB_DIR
 	depends VERTCOIN_COPY_BLOCK_DB
 	string "Database location"
 
-config VERTCOIN_PROVISION_USB_STICK
-	bool "Provision USB stick"
-	default n
 
 
