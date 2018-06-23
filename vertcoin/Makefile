@@ -71,8 +71,12 @@ endef
 
 define Package/$(PKG_NAME)/install
 
-ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
+	$(INSTALL_DIR) $(1)/root/.vertcoin
 
+# Alternate install options allow for:
+#	* installation on USB flash
+# 	* side-loading block db
+ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
 ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoind	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-cli	$(CONFIG_VERTCOIN_ALT_INSTALL_DIR)
@@ -95,8 +99,11 @@ else
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/vertcoin-tx	$(1)/usr/bin
 endif
 # TODO : Fancy service stuff
+#		Should install vertcoind as a service
 # TODO : Configuration defaults
+#		Generate a configuration file - copy it to /root/.vertcoin
 # TODO : Wallet, ZeroMQ, etc menu options
+#		Add packages/change menu options Makefile
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
