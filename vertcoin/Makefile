@@ -71,7 +71,11 @@ endef
 
 define Package/$(PKG_NAME)/install
 
+# Make configuration
 	$(INSTALL_DIR) $(1)/root/.vertcoin
+	echo "server=1" >> $(PKG_INSTALL_DIR)/vertcoin.conf
+
+	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/vertcoin.conf $(1)/root/.vertcoin
 
 # Alternate install options allow for:
 #	* installation on USB flash
