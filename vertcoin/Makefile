@@ -73,7 +73,7 @@ define Package/$(PKG_NAME)/install
 
 # Make configuration
 	$(INSTALL_DIR) $(1)/root/.vertcoin
-	echo "server=1" >> $(PKG_INSTALL_DIR)/vertcoin.conf
+	echo "server=1" > $(PKG_INSTALL_DIR)/vertcoin.conf
 	echo "daemon=1" >> $(PKG_INSTALL_DIR)/vertcoin.conf
 	echo "rpcuser=vtc" >> $(PKG_INSTALL_DIR)/vertcoin.conf
 	echo "rpcpassword=supersecret" >> $(PKG_INSTALL_DIR)/vertcoin.conf
@@ -82,7 +82,7 @@ define Package/$(PKG_NAME)/install
 	echo "maxmempool=50" >> $(PKG_INSTALL_DIR)/vertcoin.conf
 	echo "maxorphantx=10" >> $(PKG_INSTALL_DIR)/vertcoin.conf
 	echo "dbcache=100" >> $(PKG_INSTALL_DIR)/vertcoin.conf
-
+	echo "rpcthreads=1" >> $(PKG_INSTALL_DIR)/vertcoin.conf
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/vertcoin.conf $(1)/root/.vertcoin
 
 # Alternate install options allow for:
