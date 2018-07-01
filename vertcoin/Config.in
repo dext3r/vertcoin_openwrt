@@ -19,16 +19,16 @@ config VERTCOIN_ALT_INSTALL
 	default n
 
 config VERTCOIN_ALT_INSTALL_DIR
-	depends VERTCOIN_ALT_INSTALL	
+	depends on VERTCOIN_ALT_INSTALL	
 	string "Install location"
 
 config VERTCOIN_COPY_BLOCK_DB
-	depends VERTCOIN_ALT_INSTALL
+	depends on VERTCOIN_ALT_INSTALL
 	bool "Copy existing Block DB"
 	default n
 
 config VERTCOIN_COPY_BLOCK_DB_DIR
-	depends VERTCOIN_COPY_BLOCK_DB
+	depends on VERTCOIN_COPY_BLOCK_DB
 	string "Database location"
 
 
