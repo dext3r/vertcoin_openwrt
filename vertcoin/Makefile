@@ -43,7 +43,7 @@ define Package/$(PKG_NAME)
 	DEPENDS += +libopenssl +libssp +libstdcpp
 	DEPENDS += +libatomic +libevent2 +libevent2-pthreads
 ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
-	DEPENDS += +db48
+	DEPENDS += +libdb48 +libdb48xx
 endif
 endef
 
