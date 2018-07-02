@@ -42,9 +42,9 @@ define Package/$(PKG_NAME)
 	DEPENDS += +boost-chrono +boost-filesystem +boost-program_options +boost-thread +boost-test
 	DEPENDS += +libopenssl +libssp +libstdcpp
 	DEPENDS += +libatomic +libevent2 +libevent2-pthreads
-ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
-	DEPENDS += +libdb48
-endif
+#ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
+#	DEPENDS += +libdb48
+#endif
 endef
 
 define Package/$(PKG_NAME)/description
