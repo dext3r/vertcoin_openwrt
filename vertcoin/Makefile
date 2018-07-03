@@ -62,14 +62,14 @@ TARGET_CFLAGS  += -std=c99
 TARGET_CXXFLAGS += -std=c++11
 TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
-ifeq ($(CONFIG_VERTCOIN),y)
+#ifeq ($(CONFIG_VERTCOIN),y)
 	CONFIGURE_ARGS += --without-miniupnpc
  	CONFIGURE_ARGS += --with-boost-libdir=$(STAGING_DIR)/usr/lib
 
 ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),n)
 	CONFIGURE_ARGS += --disable-wallet
 endif
-endif
+
 
 define Build/Compile
 	$(call Build/Compile/Default)
@@ -92,7 +92,7 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DATA) $(PKG_INSTALL_DIR)/vertcoin.conf $(1)/root/.vertcoin
 
 # Alternate install options allow for:
-#	* installation on USB flash
+#	* installation of the binaries to USB flash
 # 	* side-loading block db
 ifeq ($(CONFIG_VERTCOIN_ALT_INSTALL),y)
 ifneq ($(CONFIG_VERTCOIN_ALT_INSTALL_DIR), '')
