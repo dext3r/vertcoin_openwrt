@@ -64,7 +64,7 @@ TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
 CONFIGURE_ARGS+= \
 	--without-miniupnpc \
-	--with-boost-libdir=$(STAGING_DIR)/usr/lib \
+	--with-boost-libdir=$(STAGING_DIR)/usr/lib
 
 ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),n)
 	CONFIGURE_ARGS+= \
