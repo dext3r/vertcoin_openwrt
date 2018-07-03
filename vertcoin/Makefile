@@ -62,12 +62,16 @@ TARGET_CFLAGS  += -std=c99
 TARGET_CXXFLAGS += -std=c++11
 TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
-#ifeq ($(CONFIG_VERTCOIN),y)
+ifeq ($(CONFIG_VERTCOIN),y)
 	CONFIGURE_ARGS += --without-miniupnpc
  	CONFIGURE_ARGS += --with-boost-libdir=$(STAGING_DIR)/usr/lib
-
-ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),n)
 	CONFIGURE_ARGS += --disable-wallet
+endif
+ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),n)
+	echo "WALLET DISABLED" >> ~/openwrt/wallet_status.txt
+endif
+ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
+	echo "WALLET ENABLED" >> ~/openwrt/wallet_status.txt
 endif
 
 
