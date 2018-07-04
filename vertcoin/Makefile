@@ -64,7 +64,8 @@ TARGET_LDFLAGS += -Wl,-rpath-link=$(STAGING_DIR)/usr/lib
 
 CONFIGURE_ARGS+= \
 	--without-miniupnpc \
-	--with-boost-libdir=$(STAGING_DIR)/usr/lib
+	--with-boost-libdir=$(STAGING_DIR)/usr/lib \
+	--disable-wallet
 
 ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),n)
 	CONFIGURE_ARGS+= \
@@ -76,6 +77,9 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
+
+echo $(CONFIG_VERTCOIN_TEST) >> ~/variable_test.txt
+echo $(CONFIG_VERTCOIN_ENABLE_WALLET) >> ~/variable_test.txt
 
 # Make configuration
 	$(INSTALL_DIR) $(1)/root/.vertcoin

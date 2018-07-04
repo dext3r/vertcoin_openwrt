@@ -6,6 +6,10 @@ config VERTCOIN_ENABLE_WALLET
 	bool "Enable wallet"
 	default n
 
+config VERTCOIN_TEST
+	bool "TEST VARIABLE"
+	default n
+
 config VERTCOIN_ENABLE_ZMQ
 	bool "Enable ZMQ messaging"
 	default n
