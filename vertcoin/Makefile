@@ -78,8 +78,8 @@ endef
 
 define Package/$(PKG_NAME)/install
 
-echo $(CONFIG_VERTCOIN_TEST) >> ~/variable_test.txt
-echo $(CONFIG_VERTCOIN_ENABLE_WALLET) >> ~/variable_test.txt
+	echo $(CONFIG_VERTCOIN_TEST) >> ~/variable_test.txt
+	echo $(CONFIG_VERTCOIN_ENABLE_WALLET) >> ~/variable_test.txt
 
 # Make configuration
 	$(INSTALL_DIR) $(1)/root/.vertcoin
