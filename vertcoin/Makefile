@@ -45,6 +45,11 @@ define Package/$(PKG_NAME)
 ifeq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
 	DEPENDS += +libdb48 +libdb48xx
 endif
+
+ifeq ($(CONFIG_VERTCOIN_ENABLE_ZMQ),y)
+	DEPENDS += libzmq
+endif
+
 endef
 
 define Package/$(PKG_NAME)/description
@@ -69,6 +74,11 @@ CONFIGURE_ARGS+= \
 ifneq ($(CONFIG_VERTCOIN_ENABLE_WALLET),y)
 	CONFIGURE_ARGS+= \
 		--disable-wallet
+endif
+
+ifneq ($(CONFIG_VERTCOIN_ENABLE_ZMQ),y)
+	CONFIGURE_ARGS+= \
+		--disable-zmq
 endif
 
 define Build/Compile
